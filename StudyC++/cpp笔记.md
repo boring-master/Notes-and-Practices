@@ -70,6 +70,7 @@
 # 1-cpp初识
 ## 1.0-可执行程序是如何生成的
 ![](./images/可执行程序是如何生成的.png)
+
 **预处理**:预处理器执行已预处理指令(#头的指令)，得到预处理文件
 1. #include:头文件包含(把头文件中的内容复制到指令所在位置)
 2. #define MAXSIZE 9:宏定义(文本替换，代码中MAXSIZE替换成9)
@@ -1022,7 +1023,155 @@ cout << *p << endl;
 cout << *q << endl;
 ```
 > 总结：空指针和野指针都不是我们申请的空间，因此不要访问。
-## 7.5-
+## 7.5-指针运算
+若p为指针，n为整型数字，`p+n`,`p-n`,`p++`,`p--`均为正常运算 
+
+指针进行加减运算的结果，和指针指向内存区域的数据类型有关，以加法为例：
+- char类型指针 +1,地址+1(字节)
+- int类型指针+1，地址+4(字节)
+- double类型指针+1，地址+8(字节)
+```cpp
+int num = 10;
+int* p = &num;
+cout << p << endl;//000000896272FB94
+p++;
+cout << p << endl;//000000896272FB98
+
+int v[] = { 1,2,3,4,5 };//每个元素的地址相差4个字节
+int* vp = v;//指针中记录了数组0下标元素的地址
+cout << *vp << endl;//第一个元素：1
+cout << v[0] << endl;//1 
+
+cout << *(vp + 1) << endl;//2
+cout << v[1] << endl;//2
+
+*(vp + 2) = 33;//修改数组中第3个元素的值
+cout << v[2] << endl;//33
+```
+> 总结：指针+n或-n，即内存地址`+n *类型大小`或`-n *类型大小`
+## 7.6-动态内存分配
+C++代码中，变量、数组等对象的创建，是由C++自动分配内存的，称之为(自动)静态内存分配。 
+
+(自动)静态内存管理，是不会进行内存空间的自动清理的。(无垃圾回收机制)
+我们需要手动的管理内存，即手动分配，用完清理。
+
+**new**：
+new运算符用于申请并分配内存空间并提供指向该空间的指针(内存地址)  
+- **基本语法**：
+  - `new type`：申请普通变量空间
+  - `new type[n]`：申请数组空间
+
+**delete**：
+deLete运算符用于释放内存
+仅可用于new运算符申请的内存区域
+- **基本语法**：
+  - `delete 指针`：删除普通变量空间
+  - `delete[] 指针`：删除数组空间
+```cpp
+int* p = new int; 
+*p = 10;
+cout << *p << endl;
+delete p;
+
+int* q = new int[5];
+q[0] = 1;//指针也可用下标，等同于*(q+0)
+*q = 1;
+q[1] = 2;//等同于*(q + 1) = 2;
+cout << q[0] << endl;
+cout << *(q + 1) << endl;
+delete[] q;
+```
+## 7.7-数组元素的移除
+**步骤**：
+1. 通过new操作符，申请新数组的内存空间，并复制数据到新数组
+2. 通过delete删除旧数组的空间占用
+3. 将旧数组指针，指向新数组地址
+```cpp
+int* pArr = new int[5] {1,2,3,4,5};
+//创建新数组
+int* pNewArr = new int[4];
+//循环遍历老数组，将需要的元素放入新数组中
+for (int i = 0; i < 5; i++) 
+{
+	if (i == 2)
+	{
+		continue;
+	}
+	if (i > 2)
+	{
+		pNewArr[i - 1] = pArr[i];
+
+	}
+	else
+	{
+		pNewArr[i] = pArr[i];
+	}
+}
+//可选
+delete[] pArr;//回收老数组的空间
+//可选
+pArr = pNewArr;//让指针指向新数组
+```
+*多元素移除*
+```cpp
+int* pArr = new int[10] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//移除下标为0和2的元素
+int* pNewArr = new int[8];
+int offset = 0;//偏移量控制变量
+for (int i = 0; i < 0; i++)
+{
+	if (i == 0 || i == 5)
+	{
+		offset++;
+		continue;
+	}
+	pNewArr[i - offset] = pArr[i];
+}
+delete[] pArr;
+//可选
+pArr = pNewArr;
+```
+## 7.8-数组元素的插入
+**步骤**：
+1. 创建新数组，将老数组元素和新插入元素一起复制到新数组中
+2. 要注意，新元素在指定位置插入(老数组元素要配合做下标增加)
+```cpp
+int* pArr = new int[5] {1, 2, 3, 4, 5};
+int* pNewArr = new int[7];
+int offset = 0;
+for (int i = 0; i < 7; i++)
+{
+	if (i == 1)
+	{
+		pNewArr[i] = 11;
+		offset++;
+		continue;
+	}
+	else if (i == 3);
+	{
+		pNewArr[i] = 66;
+		offset++;
+		continue;
+	}
+	pNewArr[i] = pArr[i - offset];
+}
+delete[] pArr;
+pArr = pNewArr;
+```
+## 7.9-指针悬挂
+**定义**：指针指向区域已经被回收  
+**总结**：
+1. 不要轻易进行指针之间相互赋值
+2. delete回收空间前，确保此空间100%不再被使用
+```cpp
+int* p1 = new int;
+*p1 = 10;
+int* p2 = p1;
+cout << "*p1: " << *p1 << endl;
+delete p1;
+cout << "*p2: " << *p2 << endl; //Undefined behavior: accessing deleted memory
+```
+
 ## 7.5-const修饰指针
 *const修饰指针有三种情况*
 1. const修饰指针一常量指针
