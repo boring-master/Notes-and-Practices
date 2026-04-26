@@ -1,11 +1,16 @@
 
-# 目录
-## [$math库$](#math库)
-## [$ASCII表$](#ascii表)
-## [$人工智能-分类与聚类算法$](#人工智能-分类与聚类算法)
-## [$智能决策-搜索与优化$](#智能决策-搜索与优化)
-## [$图像与感知$](#图像与感知)
-#  math库
+# 目录<a id="content"></a>
+## [math库](#math-library)
+## [列表的基本操作](#basic-operation-of-list)
+## [序列数据的基本操作](#basic-operation-of-sequential-data)
+## [字典的基本操作](#basic-operation-of-dictionary)
+## [ASCII表](#ascii)
+## [人工智能-分类与聚类算法](#artificial-intelligence-classification-and-clustering-algorithms)
+## [智能决策-搜索与优化](#intelligent-decision-making-search-and-optimization)
+## [图像与感知](#computer-vision-and-perception)
+
+---
+#  math库<a id="math-library"></a>
 ## 部分函数
 - `abs(x)`：**返回整数的绝对值，如`abs(-10)`返回10。**
 
@@ -51,26 +56,97 @@
 
 - `degrees(x)`：**将弧度转换为角度，如`degrees(math.pi/2)`， 返回90.0。**
 
-- `radians(x)`：**将角度转换为弧度**
+- `radians(x)`：**将角度转换为弧度。**
 
-- `factorial(x)`：**返回x的阶乘**
+- `factorial(x)`：**返回x的阶乘。**
 
 除了上述常用的数学函数，`math`库中还定义了两个常用的数学常量：
 
 - `pi`—**圆周率，一般以`π`来表示。**
 
 - `e`—**自然常数。**
-### [回到目录](#目录)
+### [回到目录](#content)
+
 ---
-# ASCII表
+<a id="basic-operation-of-list"></a>
+
+# 列表的基本操作
+![](./images/列表的基本操作1.png)
+![](./images/列表的基本操作2.png)
+![](./images/列表推导式.png)
+### [回到目录](#content)
+---
+# 序列数据的基本操作<a id="basic-operation-of-sequential-data"></a>
+![](./images/与序列数据有关的内置函数.png)
+### [回到目录](#content)
+---
+# 字典的基本操作<a id="basic-operation-of-dictionary"></a>
+## 访问字典中的值
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
+print(cars['AUDI'])
+```
+## 添加键值对
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
+cars['JLR']=8.0
+print(cars)
+```
+## 修改字典中的值
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9,'JLR':8.0}
+cars['JLR']=7.0
+print(cars)
+```
+## 删除键值对
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9,'JLR':8.0}
+del cars['JLR']
+print(cars)
+```
+## 判断字符串是否由数字组成
+```Python
+str=input()
+if str.isdigit():
+    str=eval(str)
+```
+这样可以确保输入的内容会以数值形式保存。
+## 从列表创建字典
+python 字典 fromkeys() 函数用于创建一个新字典，以序列 seq 中元素做字典的键，value 为字典所有键对应的初始值：dict.fromkeys(seq[, value])
+- 参数
+    - seq -- 字典键值列表。
+    - value -- 可选参数, 设置键序列（seq）的值。
+## 遍历字典中的键:
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
+for key in cars.keys():
+    print(key)
+```
+## 遍历字典中的值:
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
+for value in cars.values():
+    print(value)
+```
+## 遍历字典中的键值对:
+```Python
+cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
+for key,value in cars.items():
+    print(key,value)
+```
+### [回到目录](#content)
+
+---
+# ASCII表<a id="ascii"></a>
 ![ASCII](./images/ASCII.png)
 
 - `ord(字符)函数`：**可以返回字符的编码。**
 
 - `chr(码值)函数`：**可以返回编码对应的字符。**
-### [回到目录](#目录)
+### [回到目录](#content)
+
 ---
-# 人工智能-分类与聚类算法
+# 人工智能-分类与聚类算法<a id="artificial-intelligence-classification-and-clustering-algorithms">
 ## 预测目标
 ### 预测对象有标记信息：监督学习
 - 分类：离散值（决策树、k近邻、神经网络）
@@ -160,9 +236,10 @@ $cos(\overrightarrow{\alpha},\overrightarrow{\beta})=\frac{\overrightarrow{\alph
 优点：聚类时间快  
 缺点：对初始参数敏感； 容易陷入局部最优
 
-### [回到目录](#目录)
+### [回到目录](#content)
+
 ---
-# 智能决策-搜索与优化
+# 智能决策-搜索与优化<a id="intelligent-decision-making-search-and-optimization"></a>
 ## 智能决策支持系统（IDSS）
 ### 特性
 - 处理非结构化或半结构化的数据;
@@ -227,6 +304,86 @@ $cos(\overrightarrow{\alpha},\overrightarrow{\beta})=\frac{\overrightarrow{\alph
 将每个个体看作n维搜索空间中一个没有体积质量的粒子，在搜索空间中以一定的速度行，该速度决定粒子飞行的方向和距离。所有粒子定义一个适应值函数。
 ### 基本原理
 PSO初始化为一群随机粒子，然后通过迭代找到最优解。在每一次迭代中，粒子通过跟踪两个“极值”来更新自己。第一个就是粒子本身所找到的最优解，这个解称为个体极值。另一个是整个种群目前找到的最优解，这个解称为全局极值。
-### [回到目录](#目录)
+### [回到目录](#content)
+
 ---
-# 图像与感知
+# 图像与感知<a id="computer-vision-and-perception"></a>
+## 计算机中的图像表示及语义感知
+### 任务
+- 图像分割->语义对象的位置
+- 图像分类->语义对象的类别
+- 目标检测->语义对象的位置、语义对象的类别
+- 图像语义捕捉->语义的自然语言表达
+### 目标检测
+找出图片或者视频中所有感兴趣的目标(物体)，确定它们的类别和位置
+## 图像变换
+### 几何变换
+包括了图像的**形状变换**和**位置变换**。
+- 图像的**形状变换**是指图像的放大、缩小与错切。
+- 图像的**位置变换**是指图像的平移、镜像与旋转。  
+
+图像的几何变换通常在目标识别中使用。
+#### 图像的缩小
+分为按比例缩小(等间隔地选取数据)和不按比例缩小
+#### 图像的放大
+需要对多出的空位填入适当的值，是信息的估计。  
+如果需要将原图像放大为k倍，则将原图像中的每个像素值填在新图像中对应的k*k大小的子块中。
+#### 图像的错切
+实际上是平面景物在投影平面上的非垂直投影效果。
+#### 图像的平移
+#### 图像的镜像
+指在镜子中所成的像。其特点是左右颠倒或者是上下颠倒。
+#### 图像的旋转
+## 目标检测算法
+### 图像数据预处理
+主要采用图像增广的方式
+- 随机改变亮度，对比度和颜色
+- 随机填充
+- 随机裁剪
+- 随机缩放
+- 随机翻转
+### 传统的目标检测流程
+*主要问题*：
+1. 基于滑窗的区域选择策略没有针对性，时间复杂度高，窗口冗余;
+2. 手工设计的特征对于环境多样性的变化并没有很好的鲁棒性。
+## 基于深度学习的目标检测算法
+### 二阶段方法
+- 第一阶段:生成大量的候选区域(region proposals);
+- 第二阶段:对每个region proposal提取特征并分类。
+- 速度慢
+### 一阶段方法
+同时产生候选区域和分类结果
+- 速度快
+- 主要有YOLO、SSD、DSSD
+## YOLO算法的基本概念及原理
+### YOLO
+- 将检测变为一个regression problem, YOLO从输入的图像，仅仅经过一个 neural network，直接得bounding boxes以及每个bounding box所属类别的概率。
+- 端对端的优化网络结构
+- 每秒可以处理40帧图片，达到了实时的速度
+### 核心思想
+- 输入:利用整张图作为网络的输入
+- 输出:直接在输出层回归bounding box的位置和类别
+### 基本概念
+- bounding box：包括四个坐标(x,y,w,h)
+- 真实框：人工标注的含有对象的bounding box
+- 锚框(anchor):人为构造出来的假想框，锚框的长宽是人为设置的，锚框用于解决对象的多尺度问题，锚框类似于机器学习里面的样本
+### 训练过程
+- **锚框生成**:在每个网格的中心点以一定的长宽生成多个锚框;
+- **候选区域生成**:对于每个真实框，找到重叠度(IoU)最大的锚框作为正样本，随机挑选低重叠的锚框作为负样本;
+- **模型训练**:通过模型参数的更新学习使得候选区域和真实框位置尽可能重叠，类别尽可能一致。
+## YOLO算法的训练和测试
+### 模型训练
+正负候选区域传递给深度学习网络进行参数学习。  
+*目标*：
+- 正候选区域输出的objectness输出为1;
+- 正候选区域的class输出正确;
+- 正候选区域的位置进行微调与真实区域尽可能重合。
+### 测试过程
+*过滤无用信息*
+- 根据confidence参数筛选置信度高的候选框；
+- 采用非极大抑制算法对候选框进行后滤。
+### 非极大抑制算法
+如果多个预测框位置比较接近，只选出得分最高的预测框。
+### [回到目录](#content)
+
+---

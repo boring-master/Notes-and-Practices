@@ -3,3 +3,5 @@
 # 笔记
 ## [cpp笔记](./StudyC++/cpp笔记.md)
 ## [数学python笔记](./StudyPython/School/数学python笔记.md)
+
+![Stone Badge](https://stone.professorlee.work/api/stone/boring-master/Notes-and-Practices)

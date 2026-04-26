@@ -1,4 +1,5 @@
-# StudyPython
+<h1 style="text-align: center;">StudyPython</h1>
+
 ## 文件链接
 ### [School](./School/README.md)
 ### [some_small_things](./SomeSmallThings/README.md)

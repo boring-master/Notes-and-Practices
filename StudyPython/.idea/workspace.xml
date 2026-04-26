@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a48b30-b58d-4c55-ad96-9e943df816b0" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../StudyC++/cpp笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../StudyC++/cpp笔记.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/StudyPython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StudyPython.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/assets/ASCII.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/assets/身份证号码.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/assets/金字塔.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/判断身份证号码是否有效/判断身份证号码是否有效.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/循环结构（2）/判断身份证号码是否有效/判断身份证号码是否有效.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/打印金字塔/打印金字塔.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/循环结构（2）/打印金字塔/打印金字塔.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/School/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/School/字典/字典的创建和基本操作/字典的创建和基本操作.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/字典/字典的创建和基本操作/字典的创建和基本操作.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/School/字典/英文词频统计/英文词频统计.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/字典/英文词频统计/英文词频统计.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/School/数学python笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/数学python笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SomeSmallThings/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/SomeSmallThings/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +45,8 @@
     &quot;Python.matrix_inverse.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;add-new-notes&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add/new-notes/2026-4-17&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.Markdown&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
