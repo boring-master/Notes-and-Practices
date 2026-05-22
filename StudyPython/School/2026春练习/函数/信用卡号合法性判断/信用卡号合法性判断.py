@@ -37,4 +37,3 @@ while True:
         continue
     else:
         print(validCreditCard(card_number))  # 函数调用输出结果
-

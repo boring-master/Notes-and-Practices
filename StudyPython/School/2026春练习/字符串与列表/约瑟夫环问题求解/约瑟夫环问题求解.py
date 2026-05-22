@@ -14,8 +14,6 @@ def jos_func(n, m):
         result.append(removed)
     #########ends##############
     return (result)
-
-
 ###############################
 # 主程序
 n, m = eval(input())

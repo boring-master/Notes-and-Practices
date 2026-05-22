@@ -3,7 +3,7 @@
 #     host="localhost",
 #     port=3306,
 #     user="root",
-#     password="1598588ui%A+"
+#     password=""
 # )
 # cursor = conn.cursor()
 # conn.select_db('world')
@@ -16,7 +16,7 @@ conn = Connection(
     host="localhost",
     port=3306,
     user="root",
-    password="1598588ui%A+",
+    password="",
     autocommit=True         # 自动提交（确认）
 )
 cursor = conn.cursor()

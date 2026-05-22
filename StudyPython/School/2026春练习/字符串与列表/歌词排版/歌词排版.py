@@ -27,8 +27,6 @@ def songs_format(songs):
     songsList = tempList
     # 5返回歌曲列表
     return songsList
-
-
 ##############end##########
 
 # 主程序完成函数调用
@@ -41,7 +39,3 @@ print(title)
 for song in songslst:
     print(song)
 #######ends########
-
-
-
-
