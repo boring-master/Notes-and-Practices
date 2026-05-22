@@ -17,7 +17,7 @@ conn = Connection(
     host='localhost',
     port=3306,
     user='root',
-    password='1598588ui%A+',
+    password='',
     autocommit=True
 )
 

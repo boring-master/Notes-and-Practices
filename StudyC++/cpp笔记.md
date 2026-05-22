@@ -1,5 +1,5 @@
 # 目录
-## [$1.cpp初识$](#1-cpp初识)
+## [1.cpp初识](#1-cpp初识)
 <details><summary></summary>
 <p><a href="#10-可执行程序是如何生成的">1.0-可执行程序是如何生成的</a></p>
 <p><a href="#11-注释">1.1-注释</a></p>
@@ -8,7 +8,7 @@
 <p><a href="#14-标识符">1.4-标识符</a></p>
 </details>
 
-## [$2.数据类型$](#2-数据类型)
+## [2.数据类型](#2-数据类型)
 <details><summary></summary>
 <p><a href="#21-整型">2.1-整型</a></p>
 <p><a href="#22-sizeof关键字">2.2-sizeof关键字</a></p>
@@ -20,7 +20,7 @@
 <p><a href="#28-数据的输入">2.8-数据的输入</a></p>
 </details>
 
-## [$3.运算符$](#3-运算符)
+## [3.运算符](#3-运算符)
 <details><summary></summary>
 <p><a href="#31-算术运算符">3.1-算术运算符</a></p>
 <p><a href="#32-自增与自减运算符">3.2-自增与自减运算符</a></p>
@@ -30,21 +30,21 @@
 <p><a href="#36-赋值运算符">3.6-赋值运算符</a></p>
 </details>
 
-## [$4.程序流程结构$](#4-程序流程结构)
+## [4.程序流程结构](#4-程序流程结构)
 <details><summary></summary>
 <p><a href="#41-选择结构">4.1-选择结构</a></p>
 <p><a href="#42-循环结构">4.2-循环结构</a></p>
 <p><a href="#43-跳转语句">4.3-跳转语句</a></p>
 </details>
 
-## [$5.数组$](#5-数组)
+## [5.数组](#5-数组)
 <details><summary></summary>
 <p><a href="#51-一维数组">5.1-一维数组</a></p>
 <p><a href="#52-二维数组">5.2-二维数组</a></p>
 <p><a href="#53-三维数组">5.3-三维数组</a></p>
 </details>
 
-## [$6.函数$](#6-函数)
+## [6.函数](#6-函数)
 <details><summary></summary>
 <p><a href="#61-定义">6.1-定义</a></p>
 <p><a href="#62-函数的常见样式">6.2-函数的常见样式</a></p>
@@ -52,14 +52,14 @@
 <p><a href="#64-函数的分文件编写">6.4-函数的分文件编写</a></p>
 </details>
 
-## [$7.指针$](#7-指针)
+## [7.指针](#7-指针)
 <details><summary></summary>
 <p><a href=""></a></p>
 <p><a href=""></a></p>
 <p><a href=""></a></p>
 </details>
 
-## [$8.结构体$](#8-结构体)
+## [8.结构体](#8-结构体)
 <details><summary></summary>
 <p><a href=""></a></p>
 <p><a href=""></a></p>
@@ -1275,7 +1275,6 @@ void printArray(int arr[], int len)
 }
 
 int main() {
-
 	int arr[10] = { 4,3,6,9,1,2,10,8,7,5 };
 	int len = sizeof(arr) / sizeof(int);
 

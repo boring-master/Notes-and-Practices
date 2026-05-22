@@ -10,10 +10,11 @@ WordLst = WordStr.split()
 # 3 统计每个单词的个数（列表或字典的方法）
 WordDict = {}
 for word in WordLst:
-    if word not in WordDict:
-        WordDict[word] = 1
-    else:
-        WordDict[word] += 1
+    WordDict[word] = WordDict.get(word, 0) + 1
+    # if word not in WordDict:
+    #     WordDict[word] = 1
+    # else:
+    #     WordDict[word] += 1
 # 字典排序,返回值是一个列表 ?
 # 输出最高频率单词和次数 ,多个相同高频字也要输出
 max = 0

@@ -3,7 +3,7 @@
 #     host="localhost",       # 主机名
 #     port=3306,              # 端口默认3306
 #     user="root",            # 账户
-#     password="1598588ui%A+" # 密码
+#     password="" # 密码
 # )
 # # 获取游标对象
 # cursor = conn.cursor()
@@ -18,7 +18,7 @@ conn = Connection(
     host="localhost",
     port=3306,
     user="root",
-    password="1598588ui%A+"
+    password=""
 )
 cursor = conn.cursor()
 conn.select_db('world')

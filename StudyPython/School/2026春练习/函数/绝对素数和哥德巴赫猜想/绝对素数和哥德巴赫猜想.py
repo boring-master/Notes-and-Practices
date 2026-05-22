@@ -32,4 +32,3 @@ def Goldbach(N):  # 将N分解成两素数之和
 for num in [88, 68, 50, 1000]:
     Goldbach(num)
 print('*' * 20)
-
