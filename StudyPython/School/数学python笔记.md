@@ -2,6 +2,7 @@
 # 目录<a id="content"></a>
 ## [math库](#math-library)
 ## [NumPy库](#numpy-library)
+## [matplotlib库](#matplotlib-library)
 ## [列表的基本操作](#basic-operation-of-list)
 ## [序列数据的基本操作](#basic-operation-of-sequential-data)
 ## [字典的基本操作](#basic-operation-of-dictionary)
@@ -140,7 +141,7 @@ print(“数据类型:”, arr2.dtype) # 元素数据类型 float32
 
 - `np.random.randn(d0, d1, ..., dn)`：标准正态分布的随机数组，例如：`np.random.randn(3)`，结果：3个元素的随机数组
 
-- `np.random.random(size=None)`：[0,1) 均匀分布的随机数组，例如：`np.random.random((2,3))`，结果：2x3 随机数组
+- `np.random.random(size=None)`：[0,1)均匀分布的随机数组，例如：`np.random.random((2,3))`，结果：2x3 随机数组
 
 - `np.random.randint(low, high=None, size=None)`：指定范围的随机整数数组，例如：`np.random.randint(5, 10, size=(3,))`
 
@@ -607,12 +608,379 @@ result = np.dot(A, B) # 结果形状：2×2
     - 维度扩展：在缺失维度或大小为 1 的维度上进行扩展
 
 ![](./images/逐元素运算的广播机制.png)
+```Python
+c = np.array([[1], [2], [3]]) # 形状 (3, 1)
+d = np.array([10, 20, 30]) # 形状 (3,)
+print(c + d)
+# c的形状由(3,1) 扩充为(3,3),列向扩充 ;
+# d的形状由(3,)扩充为(1,3),再扩充为(3,3),行向扩充。
+# 输出:
+# [[11 21 31]
+#  [12 22 32]
+#  [13 23 33]]
+a = np.array([[1, 2, 3]]) # (1, 3) - 行向量
+b = np.array([10, 20, 30]) # (3,)
+print(a + b) # a的形状不变；b的形状由(3,)扩充为(1,3)
+# 输出: [[11 22 33]]
+```
+```Python
+A = np.ones((2, 3)) # 形状: (2, 3) 数据格式为float64
+B = np.array([1, 2, 3]) # 形状: (3,)
+print(A+B)
+# 广播步骤：
+# 1. 对齐维度: A(2,3) vs B(3) → B添加新轴: (1,3)
+# 2. 扩展维度: B沿轴0复制: (2,3)
+# 3. 执行操作: A + 扩展后的B
+# 输出:
+# [[2. 3. 4.]
+#  [2. 3. 4.]]
+# 数组与标量相加
+arr = np.array([1, 2, 3, 4])
+scalar = 10
+new = arr + scalar # 这实际上会将标量广播到与数组相同的形状，然后进行元素级加法
+print(new) # 输出: [11 12 13 14]
+```
+### 矩阵乘法的广播机制
+- np.matmul 或 @ 运算遵循矩阵乘法规则，广播发生在：
+    - 最后两个维度进行矩阵乘法
+    - 前面维度遵循逐元素广播规则
+- 对于形状为 (a, b, ..., m, n) 和 (a, b, ..., n, p) 的数组：
+    - 前面维度 (a, b, ...) 必须广播兼容
+    - 最后两个维度 (m, n) 和 (n, p) 必须满足矩阵乘法规则
+- 一维数组自动添加/移除维度：
+    - 左操作数自动添加前置维度：(n,) → (1, n)
+    - 右操作数自动添加后置维度：(n,) → (n, 1)
+- 结果维度自动缩减：
+    - (m,n) @ (n,) → (m,) # 移除尾部维度
+    - (m,) @ (m,n) → (n,) # 移除首部维度
+
+![](./images/矩阵乘法的广播机制.png)
+#### 向量与矩阵相乘示例：
+```Python
+# 向量 (3,) 与矩阵 (3x2) 相乘
+vector = np.array([2, 3, 7])
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+result = vector @ matrix #np.dot(vector,matrix)
+# 向量(3,)自动广播为行向量(1,3); 运算结果移除首部维度
+print(result) # 输出: [46 58]
+```
+#### 矩阵与向量相乘示例：
+```Python
+# 矩阵 (3x2) 与向量 (2,) 相乘
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+vector = np.array([2, 3])
+result = matrix @ vector # np.dot(matrix,vector)
+# 向量(2,)自动广播为列向量(2,1); 运算结果移除尾部维度
+print(result) # 输出：[ 8 18 28]
+```
+#### 向量的矩阵乘法示例：
+```Python
+u = np.array([1, 2, 3]) # (3,)
+v = np.array([4, 5, 6]) # (3,)
+dot_product = u @ v
+# (3,)(3,)=>(1,3)(3,1)=>(1,1)，效果等同于内积
+print(dot_product) # 输出: 32 
+```
+#### 行向量与矩阵相乘示例：
+```Python
+# 行向量 (1, 3) 与矩阵 (3x2) 相乘
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+vector = np.array([[2, 3, 7]])
+result = vector @ matrix
+# 行向量与矩阵相乘；运算结果不移除维度
+print(result) # 输出: [[46 58]]
+```
+### 线性代数相关函数
+- `np.dot()`：矩阵点乘（内积）
+
+- `np.matmul()`：矩阵乘法（等同于 @ 运算符）
+
+- `np.linalg.inv()`：计算矩阵的逆
+
+- `np.linalg.det()`：计算矩阵的行列式
+
+- `np.linalg.eig()`：计算矩阵的特征值和特征向量
+
+- `np.transpose()`：矩阵转置，ndarray.T
+
+- `np.trace()`：计算矩阵的迹（对角线元素之和）
+### [回到目录](#content)
+
+---
+# matplotlib库<a id="matplotlib-library"></a>
+## 基本知识
+- 导入库`import matplotlib.pyplot as plt`
+- 中文问题：
+    ```Python
+    # 步骤一（替换sans-serif字体）
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    # 步骤二（解决坐标轴负数的负号显示问题）
+    plt.rcParams['axes.unicode_minus'] = False
+    # 解决汉字乱码问题
+    # 注意：Macos用 STHeitiSC-Light
+    ```
+- 创建绘图区域
+    - 在绘图结构中，figure 创建窗口，subplot 创建子图。所有的绘画只能在子图上进行。plt 表示当前子图，若没有就创建一个子图。
+      - figure：面板(图)，matplotlib中的所有图像都是位于figure对象中，一个图像只
+      能有一个figure对象。
+      - subplot：子图，figure对象下创建一个或多个subplot对象(即axes)用于绘制图像。
+    - 使用 subplot 函数的时候，你需要指明网格的行列数量，以及你希望将图样放在哪一个网格区域中。
+```Python
+#导入库函数
+import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+import numpy as np
+#准备绘图数据
+x = np.arange(-5,5,0.1) # 定义x数据范围
+y1 = x*3 # 定义y1数据范围
+y2 = x*x # 定义y2数据范围
+#创建窗口、子图
+fig = plt.figure() # 先创建一个窗口
+ax1 = fig.add_subplot(2,1,1) #通过fig添加子图，参数：(行数,列数,第几个 )
+ax2 = fig.add_subplot(2,1,2)
+ax1.plot(x,y1) # plot()画出直线
+ax2.plot(x,y2,color = 'red',marker = '*', linestyle = '--') # 设置曲线颜色,标记，样式
+plt.show() # 显示图像
+```
+![](./images/plt_test.png)
+## 图表的基本组成元素
+<table>
+    <tr>
+        <td>图表基本元素</td> 
+        <td>含义</td>
+        <td>plt.函数名</td>
+    </tr>
+    <tr>
+        <td>画布</td> 
+        <td>绘图界面，可绘制1个或多个图</td> 
+        <td>fig = plt.figure(figsize =(15,10))</td>
+    </tr>
+    <tr>
+        <td>坐标系、坐标轴</td>
+        <td>直角、球和极坐标系，常用直角坐标系x轴和y轴（二维）</td>
+        <td>坐标刻度默认x或y的值，改变显示用plt.xticks(),plt.yticks()，刻度范围plt.xlim(),plt.ylim()</td>
+    </tr>
+    <tr>
+        <td>坐标轴标题</td>
+        <td>x轴和y轴的名称</td>
+        <td>plt.xlabel(),plt.ylabel()</td>
+    </tr>
+    <tr>
+        <td>图表标题</td>
+        <td>图表核心主题</td>
+        <td>plt.title("标题名称")</td>
+    </tr>
+    <tr>
+        <td>数据标签</td>
+        <td>展示图表中的数值</td>
+        <td>plt.text(i,j,value),(i,j)代表位置</td>
+    </tr>
+    <tr>
+        <td>数据表</td>
+        <td>图表下方的数据表</td>
+        <td>plt.table()</td>
+    </tr>
+    <tr>
+        <td>网格线</td>
+        <td>更方便察看数据的位置信息</td>
+        <td>plt.grid(b=True/False)</td>
+    </tr>
+    <tr>
+        <td>图例</td>
+        <td>不同符号或颜色代表的内容和指标</td>
+        <td>label 参数传入图例名称，plt.legend(loc =?)显示图例</td>
+    <tr>
+        <td>格式化参数</td>
+        <td colspan="2">颜色color，线型linestyle，线宽linewidth, 标记marker， 图例label，字体大小fontsize</td>
+    </tr>
+</table>
+
+## 折线图-plot
+`plt.plot(x, y, color="r", linestyle="--", marker="*", linewidth=1.0)`  
+简化写成`plt.plot(x, y, "r--*" ,linewidth=1.0)`
+<details><summary>linestyle</summary>
+    <ul>
+        <li>实线：'-'或'solid'</li>
+        <li>虚线：'--'或'dashed'</li>
+        <li>点线：':'或'dotted'</li>
+        <li>点划线：'-.'或'dashdot'</li>
+        <li>无线条：''或' '或'None'</li>
+    </ul>
+</details>
+<details><summary>color</summary>
+    <ul>
+        <li>蓝色：'b'或'blue'</li>
+        <li>红色：'r'或'red'</li>
+        <li>绿色：'g'或'green'</li>
+        <li>青色：'c'或'cyan'</li>
+        <li>品红：'m'或'magenta'</li>
+        <li>黄色：'y'或'yellow'</li>
+        <li>黑色：'k'或'black'</li>
+        <li>白色：'w'或'white'</li>
+    </ul>
+</details>
+</details>
+<details><summary>marker</summary>
+    <ul>
+        <li>实心圆：'o'</li>
+        <li>叉号：'x'</li>
+        <li>加号：'+'</li>
+        <li>实心加号：'P'</li>
+        <li>菱形：'D'</li>
+        <li>正方形：'s'</li>
+        <li>上三角形：'^'</li>
+    </ul>
+</details>
+<details><summary>loc</summary>
+    <ul>
+        <li>'best'</li>
+        <li>'upper right'</li>
+        <li>'upper left'</li>
+        <li>'lower left'</li>
+        <li>'lower right'</li>
+        <li>'right'</li>
+        <li>'center left'</li>
+        <li>'center right'</li>
+        <li>'lower center'</li>
+        <li>'upper center'</li>
+        <li>'center'</li>
+    </ul>
+</details>
+
+```Python
+#绘制折线图设置图标元素
+x = [1, 2, 3, 4]
+y = [1.2, 2.5, 4.5, 7.3]
+'''
+第一个参数是序号，可为数字或字符串,用来区分不同画布；可用figsize参数指明画布大小。
+fig1=plt.figure('fig1', figsize=(7,5))
+默认使用一个画布 如果要拥有多个画布，可用figure函数创建!
+''' fig1 = plt.figure('fig1',figsize =(7,5))
+#plt.plot(x, y) # plot函数作图折线图
+plt.plot(x, y, color="r", linestyle="--", marker="*", linewidth=1.0,label ='虚线')
+plt.plot(x, x, color="b", linestyle="-", marker="o", linewidth=2.0,label = '实线')
+plt.legend(loc='upper left') #图例显示位置
+plt.title('折线图')
+plt.ylabel('Y')
+plt.xlabel('X')
+plt.grid() #网格
+plt.savefig('line.png') #保存
+plt.show() #看得到图形则不用这条语句
+```
+![](./images/plt_plot.png)
+## 条形图-bar
+`bar(left, height, alpha=1, width,bottom, color=, edgecolor=, label=, linewidth)`
+<details><summary>参数：</summary>
+    <ul>
+        <li>left：x轴的位置序列，一般采用arange函数产生一个序列，类别型数据位置</li>
+        <li>height：y轴的数值序列，也就是柱形图的高度，一般就是我们需要展示的数据</li>
+        <li>alpha：透明度</li>
+        <li>width：为柱形图的宽度</li>
+        <li>bottom：为条形起始位置</li>
+        <li>color：柱形图填充的颜色</li>
+        <li>edgecolor：图形边缘颜色</li>
+        <li>label：解释每个图像代表的含义</li>
+        <li>linewidth：边缘线的宽度</li>
+    </ul>
+</details>
+
+```Python
+# 条形图：bar()
+x = [0,1,2,3] #季度
+y = [1000, 1500, 1300, 1800] #销量
+colors=['red','green','cyan','blue']
+plt.bar(x, y,width=0.8,color=colors)
+plt.xticks(x,['春', '夏', '秋', '冬'])
+# 水平条形图：barh()
+plt.barh(x, y,height=0.8,color=colors)
+plt.yticks(x,[‘春’, ‘夏’, ‘秋’, ‘冬’])
+# 值标签
+for i,j in zip(x,y):
+    plt.text(i,j,j)
+```
+<div style="display: flex; gap: 5px;">
+    <img src="./images/plt_bar_春夏秋冬.png" style="max-width: 50%; height: auto;" />
+    <img src="./images/plt_barh_春夏秋冬.png" style="max-width: 50%; height: auto;" />
+</div>
+
+```Python
+#绘制条形图
+n=12
+X=np.arange(n)
+Y1=(1-X/float(n))*np.random.uniform(0.5,1.0,n)#均匀分布
+Y2=(1-X/float(n))*np.random.uniform(0.5,1.0,n)
+fig=plt.figure()#创建一个窗口
+ax=fig.add_subplot(1,1,1)#添加一个子图
+ax.bar(X,+Y1,color='#9999ff',edgecolor='white')
+ax.bar(X,-Y2,color='#ff9999',edgecolor='white')
+for x,y in zip(X,Y1):
+    plt.text(x,y+0.05,'%.2f'%y,ha='center',va='bottom')
+for x,y in zip(X,Y2):
+    plt.text(x,-y-0.05,'%.2f'%y,ha='center',va='bottom')
+plt.ylim(-1.25,+1.25)
+plt.show()
+```
+<img src="./images/plt_bar.png" width="50%" style="max-width: 100%; height: auto;" />
+
+## 饼图-pie
+`pie(size, explode=None, labels=None,colors=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w'),autopct=None, shadow=False,labeldistance=1.1, radius=None)`
+<details><summary>参数：</summary>
+    <ul>
+        <li>size：(每一块)的比例，如果sum(x) > 1会使用sum(x)归一化</li>
+        <li>labels：(每一块)饼图外侧显示的说明文字（标签数据）</li>
+        <li>explode：(每一块)离开中心距离，突出部分</li>
+        <li>startangle：起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起</li>
+        <li>shadow：是否阴影</li>
+        <li>labeldistance：label绘制位置,相对于半径的比例, 如小于1则绘制在饼图内侧</li>
+        <li>autopct：控制饼图内百分比设置,可以使用format字符串指小数点前后位数</li>
+        <li>radius：控制饼图半径</li>
+        <li>pctdistance：设置圆内文本距圆心距离</li>
+    </ul>
+</details>
+
+```Python
+label_list = ["第一部分", "第二部分", "第三部分"] # 各部分标签
+size = [55, 35, 10] # 各部分大小
+color = ["red", "green", "blue"] # 各部分颜色
+explode = [0.05, 0, 0] # 各部分突出值
+#绘制饼图
+plt.pie(size, explode=explode, colors=color, labels=label_list, labeldistance=1.1, autopct="%1.1f%%", shadow=False, startangle=90, pctdistance=0.6)
+plt.axis("equal") # 设置横轴和纵轴大小相等，这样饼是圆的
+plt.legend()
+plt.show()
+```
+<img src="./images/plt_pie.png" width="50%" style="max-width: 100%; height: auto;" />
+
+## 散点图-scatter
+`scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None)`
+<details><summary>参数：</summary>
+    <ul>
+        <li>x,y：分别是x轴和y轴的数据集。两者的数据长度必须一致。</li>
+        <li>s：点的尺寸。如果是一个具体的数字，那么散点图的所有点都是一样大小，如果是一个序列，那么这个序列的长度应该和x轴数据量一致，序列中的每个元素代表每个点的尺寸。</li>
+        <li>c：点的颜色。可以为具体的颜色，也可以为一个序列或者是一个cmap对象。</li>
+        <li>marker：标记点，默认是圆点，也可以换成其他的。</li>
+    </ul>
+</details>
+
+```Python
+# 使用numpy产生数据
+fig = plt.figure() # 创建一个窗口
+ax = fig.add_subplot(1,1,1) # 在窗口上添加一个子图
+x = np.random.random(100) # 产生随机数组
+y = np.random.random(100) # 产生随机数组
+ax.scatter(x,y,s = x*100,c = 'y',marker = (6,1),alpha = 0.5,lw = 2)
+# x横坐标，y纵坐标，s图像大小，c颜色，marker图片，lw图像边框宽度
+plt.show() # 显示图像
+```
+<img src="./images/plt_scatter.png" width="50%" style="max-width: 100%; height: auto;" />
+
 ### [回到目录](#content)
 
 ---
 # 列表的基本操作<a id="basic-operation-of-list"></a>
-![](./2026春练习/images/列表的基本操作1.png)
-![](./2026春练习/images/列表的基本操作2.png)
+![](./images/列表的基本操作1.png)
+![](./images/列表的基本操作2.png)
 ## 列表推导式
 `lst=[包含x的表达式 for x in 序列 if 条件表达式]`
 ```Python
@@ -627,7 +995,7 @@ for x in range(20):
 
 ---
 # 序列数据的基本操作<a id="basic-operation-of-sequential-data"></a>
-![](./2026春练习/images/与序列数据有关的内置函数.png)
+![](./images/与序列数据有关的内置函数.png)
 ### [回到目录](#content)
 
 ---

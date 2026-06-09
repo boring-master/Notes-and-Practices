@@ -5,71 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a48b30-b58d-4c55-ad96-9e943df816b0" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../StudyC++/cpp笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../StudyC++/cpp笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/pymysql2_数据插入.py" beforeDir="false" afterPath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/pymysql2_数据插入.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/pymysql_入门.py" beforeDir="false" afterPath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/pymysql_入门.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/数据分析2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ItHeimaPython/chapter_2/2/数据分析2/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/lambda匿名函数.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/与序列数据有关的内置函数.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/列表推导式.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/列表的基本操作1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/列表的基本操作2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/判断星期几.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/字符串方法.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/打印图案-字符串方式.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/日历.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/杨辉三角形.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/身份证号码.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/images/金字塔.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/lambda函数的使用/lambda函数的使用.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/lambda函数的使用/lambda函数的使用.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/信用卡号合法性判断/信用卡号合法性判断.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/信用卡号合法性判断/信用卡号合法性判断.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/打印日历/打印日历.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/打印日历/打印日历.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/绝对素数和哥德巴赫猜想/绝对素数和哥德巴赫猜想.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/函数/绝对素数和哥德巴赫猜想/绝对素数和哥德巴赫猜想.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/字典的创建和基本操作/字典的创建和基本操作.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/字典的创建和基本操作/字典的创建和基本操作.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/字典的遍历/字典的遍历.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/字典的遍历/字典的遍历.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/整数翻译/整数翻译.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/整数翻译/整数翻译.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/英文词频统计/英文词频统计.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字典/英文词频统计/英文词频统计.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/列表的基本操作/列表的基本操作.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/列表的基本操作/列表的基本操作.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/序列数据的基本操作/序列数据的基本操作.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/序列数据的基本操作/序列数据的基本操作.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/打印图案-字符串方式/打印图案-字符串方式.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/打印图案-字符串方式/打印图案-字符串方式.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/杨辉三角形-嵌套列表/杨辉三角形-嵌套列表.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/杨辉三角形-嵌套列表/杨辉三角形-嵌套列表.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/模拟银行用户注册流程/模拟银行用户注册流程.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/模拟银行用户注册流程/模拟银行用户注册流程.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/歌词排版/歌词排版.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/歌词排版/歌词排版.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/约瑟夫环问题求解/约瑟夫环问题求解.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/字符串与列表/约瑟夫环问题求解/约瑟夫环问题求解.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/凯撒密码加密/凯撒密码加密.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/凯撒密码加密/凯撒密码加密.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/多学生成绩等级计算器/多学生成绩等级计算器.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/多学生成绩等级计算器/多学生成绩等级计算器.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/求前n项之和（s=a+aa+···）/求前n项之和.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/求前n项之和（s=a+aa+···）/求前n项之和.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/计算正弦值/计算正弦值.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（1）/计算正弦值/计算正弦值.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/n个钱买n只鸡的问题/n个钱买n只鸡的问题.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/n个钱买n只鸡的问题/n个钱买n只鸡的问题.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/判断身份证号码是否有效/判断身份证号码是否有效.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/判断身份证号码是否有效/判断身份证号码是否有效.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/剩余材料最短/剩余材料最短.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/剩余材料最短/剩余材料最短.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/打印金字塔/打印金字塔.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/打印金字塔/打印金字塔.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/输出给定范围内的所有素数/输出给定范围内的所有素数.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/School/循环结构（2）/输出给定范围内的所有素数/输出给定范围内的所有素数.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/School/数学python笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/School/数学python笔记.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +42,7 @@
     &quot;Python.英文词频统计.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;add/new-notes/2026-4-26&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add/new-notes/2026-5-22&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
