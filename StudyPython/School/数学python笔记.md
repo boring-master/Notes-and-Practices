@@ -3,6 +3,8 @@
 ## [math库](#math-library)
 ## [NumPy库](#numpy-library)
 ## [matplotlib库](#matplotlib-library)
+## [机器学习](#machine-learning)
+## [算法思维](#algorithmic-thinking)
 ## [列表的基本操作](#basic-operation-of-list)
 ## [序列数据的基本操作](#basic-operation-of-sequential-data)
 ## [字典的基本操作](#basic-operation-of-dictionary)
@@ -96,10 +98,10 @@ print("numpy数组:", arr1) # 输出数组 [1 2 3 4 5]
 print("单列表:", arr1.tolist()) # 数组转列表 [1, 2, 3, 4, 5]
 #注意列表和数组的输出差异，列表元素逗号分隔，数组元素空格分隔
 # 查看数组属性
-print(“数组形状:”, arr1.shape) # 维度大小 (5,)
-print(“数组维度:”, arr1.ndim) # 维度数量 1
-print(“数组大小:”, arr1.size) # 元素总数 5
-print(“数据类型:”, arr1.dtype) # 元素数据类型 int64
+print("数组形状:", arr1.shape) # 维度大小 (5,)
+print("数组维度:", arr1.ndim) # 维度数量 1
+print("数组大小:", arr1.size) # 元素总数 5
+print("数据类型:", arr1.dtype) # 元素数据类型 int64
 ```
 - 创建二维数组
 ```Python
@@ -108,10 +110,10 @@ print("numpy数组:", arr2) # 输出数组 [[1. 2. 3.]
                           #          [4. 5. 6.]]
 print("嵌套列表:", arr2.tolist()) # 数组转列表 [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
 # 查看数组属性
-print(“数组形状:”, arr2.shape) # 维度大小 (2, 3)
-print(“数组维度:”, arr2.ndim) # 维度数量 2
-print(“数组大小:”, arr2.size) # 元素总数 6
-print(“数据类型:”, arr2.dtype) # 元素数据类型 float32
+print("数组形状:", arr2.shape) # 维度大小 (2, 3)
+print("数组维度:", arr2.ndim) # 维度数量 2
+print("数组大小:", arr2.size) # 元素总数 6
+print("数据类型:", arr2.dtype) # 元素数据类型 float32
 ```
 #### 使用NumPy库函数创建特殊数组
 - `np.zeros(shape)`：创建全零数组，例如：`np.zeros((2, 3))`，结果：[[0. 0. 0.], [0. 0. 0.]]
@@ -301,7 +303,8 @@ print(shuffled_matrix)
     print("对角线元素:", arr_2d[rows, cols]) # 选择特定行列组合(0,2), (1,1), (2,0)
     ```
     ```Python
-    arr2d = np.linspace(1,100,12).reshape(4,3)print(arr2d)
+    arr2d = np.linspace(1,100,12).reshape(4,3)
+    print(arr2d)
     print(arr2d[[2,0,1]]) #依次选取2,0,1行
     print(arr2d[:,[2,0]]) #依次选取2,0列
     arr_bak = arr2d[[2,0,1]]
@@ -316,8 +319,8 @@ print(shuffled_matrix)
     arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) # 创建测试数组
     print("大于5的元素:", arr[arr > 5]) # 简单布尔条件
     print("偶数元素:", arr[arr % 2 == 0]) # 简单布尔条件
-    print(“大于3且小于8的元素:”, arr[(arr > 3) & (arr < 8)]) # 组合条件逻辑与
-    print(“小于3或大于7的元素:”, arr[(arr < 3) | (arr > 7)]) # 组合条件逻辑或
+    print("大于3且小于8的元素:", arr[(arr > 3) & (arr < 8)]) # 组合条件逻辑与
+    print("小于3或大于7的元素:", arr[(arr < 3) | (arr > 7)]) # 组合条件逻辑或
     # 二维测试数组
     arr_2d = np.array([[1, 2, 3],
         [4, 5, 6],
@@ -820,7 +823,6 @@ plt.show() # 显示图像
         <li>白色：'w'或'white'</li>
     </ul>
 </details>
-</details>
 <details><summary>marker</summary>
     <ul>
         <li>实心圆：'o'</li>
@@ -856,7 +858,8 @@ y = [1.2, 2.5, 4.5, 7.3]
 第一个参数是序号，可为数字或字符串,用来区分不同画布；可用figsize参数指明画布大小。
 fig1=plt.figure('fig1', figsize=(7,5))
 默认使用一个画布 如果要拥有多个画布，可用figure函数创建!
-''' fig1 = plt.figure('fig1',figsize =(7,5))
+''' 
+fig1 = plt.figure('fig1',figsize =(7,5))
 #plt.plot(x, y) # plot函数作图折线图
 plt.plot(x, y, color="r", linestyle="--", marker="*", linewidth=1.0,label ='虚线')
 plt.plot(x, x, color="b", linestyle="-", marker="o", linewidth=2.0,label = '实线')
@@ -894,14 +897,14 @@ plt.bar(x, y,width=0.8,color=colors)
 plt.xticks(x,['春', '夏', '秋', '冬'])
 # 水平条形图：barh()
 plt.barh(x, y,height=0.8,color=colors)
-plt.yticks(x,[‘春’, ‘夏’, ‘秋’, ‘冬’])
+plt.yticks(x,['春', '夏', '秋', '冬'])
 # 值标签
 for i,j in zip(x,y):
     plt.text(i,j,j)
 ```
 <div style="display: flex; gap: 5px;">
-    <img src="./images/plt_bar_春夏秋冬.png" style="max-width: 50%; height: auto;" />
-    <img src="./images/plt_barh_春夏秋冬.png" style="max-width: 50%; height: auto;" />
+    <img src="./images/plt_bar_春夏秋冬.png" style="max-width: 50%; height: auto;"  alt="春夏秋冬条形图"/>
+    <img src="./images/plt_barh_春夏秋冬.png" style="max-width: 50%; height: auto;"  alt="春夏秋冬水平条形图"/>
 </div>
 
 ```Python
@@ -921,7 +924,7 @@ for x,y in zip(X,Y2):
 plt.ylim(-1.25,+1.25)
 plt.show()
 ```
-<img src="./images/plt_bar.png" width="50%" style="max-width: 100%; height: auto;" />
+<img src="./images/plt_bar.png" width="50%" style="max-width: 100%; height: auto;"  alt="条形图"/>
 
 ## 饼图-pie
 `pie(size, explode=None, labels=None,colors=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w'),autopct=None, shadow=False,labeldistance=1.1, radius=None)`
@@ -950,7 +953,7 @@ plt.axis("equal") # 设置横轴和纵轴大小相等，这样饼是圆的
 plt.legend()
 plt.show()
 ```
-<img src="./images/plt_pie.png" width="50%" style="max-width: 100%; height: auto;" />
+<img src="./images/plt_pie.png" width="50%" style="max-width: 100%; height: auto;"  alt="饼图"/>
 
 ## 散点图-scatter
 `scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None)`
@@ -973,8 +976,260 @@ ax.scatter(x,y,s = x*100,c = 'y',marker = (6,1),alpha = 0.5,lw = 2)
 # x横坐标，y纵坐标，s图像大小，c颜色，marker图片，lw图像边框宽度
 plt.show() # 显示图像
 ```
-<img src="./images/plt_scatter.png" width="50%" style="max-width: 100%; height: auto;" />
+<img src="./images/plt_scatter.png" width="50%" style="max-width: 100%; height: auto;"  alt="散点图"/>
 
+### [回到目录](#content)
+
+---
+# 机器学习<a id="machine-learning"></a>
+## 概述
+### 工作流程
+![](./images/机器学习工作流程.png)
+### 常用术语
+1. 模型与模型参数  
+    类似黑盒子，根据数据与算法构建 ，有决策树模型,线性模型， 分类模型
+2. 数据集、样本、特征和目标
+3. 训练与推理（预测与决策）
+4. 泛化能力  
+    模型不仅在训练数据上表现佳，在其他数据集上也表现不错，举一反三的作用
+5. 训练集，验证集和测试集
+### 方式
+- 有监督学习：训练样本包含对应的‘标签’（例如每个样本所属的类别）。训练集需要包括输入和输出，也就是特征和目标，其中目标是由人工标注的‘标签’。通过大量已知的数据不断训练和减少错误来提高认知能力，最后根据积累的经验去预测未知数据的属性。
+  - 回归问题：一元、多元和非线性回归，连续变量的预测
+  - 分类问题：二分类与多分类问题，分类线或超平面，离散变量的预测
+- 无监督学习：训练数据包含一组输入向量而没有相应的目标值。这类算法的目标可能是发现原始数据中相似样本的组合（称作聚类），或者确定数据的分布（称作密度估计），或者把数据从高维空间投影到低维空间（称作降维）以便进行可视化。
+  - 聚类：K-means算法
+  - 降维：主成分分析
+- 半监督学习：少量标记数据与大量未标记数据
+  - 利用少量的标记数据对模型进行参数的初始化
+  - 用初始化的模型对大量的未标记数据进行预测以获得新的标记数据
+  - 采用新的标记数据重新训练模型
+  - 重复训练直到模型训练达到收敛
+## 回归
+### 回归分析
+指利用数据统计原理，对大量统计数据进行数学处理，并确定因变量与某些自变量的相关关系，建立一个相关性较好的回归方程（函数表达式），并加以外推，用于预测今后的因变量的变化的分析方法。
+#### 分类
+- 线性回归
+  - 一元线性回归
+  - 多元线性回归
+- 非线性回归
+#### 第三方库 sklearn（scikit-learn）
+[sklearn库主要模块功能简介](https://www.cnblogs.com/hongbao/p/17660040.html)
+### 数据挖掘
+```Python
+# 导入库
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import numpy as np
+# 从文件中读取数据：
+data=np.genfromtxt('advertising.csv',delimiter=',',skip_header =1)
+# 绘制散点图观察数据相关性
+plt.figure('fig1',dpi=200)
+plt.scatter(data[:,1],data[:,-1],color='r',marker='^')
+plt.grid()
+plt.title('TV')
+plt.figure('fig2',dpi=200)
+plt.scatter(data[:,2],data[:,-1],color='g',marker='*')
+plt.grid()
+plt.title('radio')
+plt.figure('fig3',dpi=200)
+plt.scatter(data[:,3],data[:,-1],color='b',marker='o')
+plt.grid()
+plt.title('newspaper')
+# 拆分特征值和目标值
+x=data[:,1] # 特征值
+y=data[:,-1] # 目标值
+# 拆分训练集和测试集
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=33) 
+# 创建线性回归模型对象
+lr = LinearRegression(normalize=True) 
+# 训练模型
+lr.fit(x_train, y_train) 
+# 方程系数
+print('回归方程的系数：',lr.coef_)
+print('回归方程的截距：',lr.intercep)
+```
+#### 归一化
+1. 把数据变成(0，1)之间的小数。把数据映射到0～1范围之内处理，更加便捷快速
+2. 把有量纲表达式变成无量纲表达式，便于不同单位或量级的指标能够进行比较和加权
+```Python
+def normalization(data): 
+    _range = np.max(data,axis=0) - np.min(data,axis=0) #列向量
+    return (data - np.min(data,axis=0)) / _range
+```
+#### 标准化
+使每个特征中的数值平均变为0、标准差变为1。
+```Python
+def standard(data): 
+    _mean=np.mean(data,axis=0) 
+    _std=np.std(data,axis=0)
+    return (data - _mean) / _std
+```
+#### 模型测试和拟合效果
+均方根误差（MSE = mean square error）：真实值与预测值之
+间误差的平方和的均值。（最小二乘）  
+R方（$R^2$：决定系数）是衡量回归模型拟合优度的统计量，用于反映回归模型对样本数据的拟合程度R² = 1 - SSE/SST（计算残差平方和（SSE）和总平方和（SST））
+```Python
+y_pred=lr.predict(x_test)
+print(mean_squared_error(y_test,y_pred)) # 均方误差
+print(lr.score(x_test, y_test)) # 测试集拟合优化度
+print(r2_score(y_test, y_pred)) # R方
+```
+### 训练问题解决方法
+- 过拟合：增加数据量、用正则化（如L1/L2）、早停法、Dropout等。  
+- 欠拟合：增加特征、用更复杂的模型、减少正则化等。
+## 分类
+### 逻辑回归
+是一个用于分类的线性模型，可以说是加了个sigmoid函数(S函数)的线性回归。
+```Python
+# 导入库
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+import numpy as np
+# 从文件中读取数据：
+data=np.genfromtxt('test_pass.csv', delimiter=',', skip_header =1, encoding='utf-8')
+# 绘制散点图观察数据分布情况
+plt.xlabel('duration')
+plt.ylabel('efficiency')
+plt.scatter(data[:,1],data[:,2], marker='o',c=data[:,-1])
+# 拆分训练集和测试集
+x=data[:,1:3]
+y=data[:,-1]
+X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.25,random_state
+=30)
+# 创建线性回归模型对象
+reg = LogisticRegression()
+# 训练模型
+reg.fit(X_train, y_train)
+# 模型评价
+y_pred =reg.predict(X_test)
+score = accuracy_score(y_test,y_pred)
+#分类准确率Accuracy = (TP + TN)/(TP + TN + FN + FP)
+#confusion_matrix(y_test,y_pred)
+#recall_score、precision_score、f1_score等
+# 预测
+learning=np.array([[8, 0.9],[2, 0.6]])
+result = reg.predict(learning)
+# 可视化
+plt.scatter(data[:,1],data[:,2],c=data[:,-1],marker='o')
+plt.scatter(learning[:,0],learning[:,1],marker='^',c=result)
+```
+```Python
+df = pd.read_csv("breast_cancer_test.csv")#用pandas打开数据文件
+df1 =df.dropna() #默认丢弃任何含有NaN的行
+print(df1)
+print(df1.dtypes) #查看各列的数据类型
+print(df1.shape) #查看数据的维度
+data = df1.values #数据转换，df转化成数组arr
+print(data)
+x = data[:,1:-1] #获取特征值
+y = data[:,-1] #获取标签数据
+```
+### [回到目录](#content)
+
+---
+# 算法思维<a id="algorithmic-thinking"></a>
+## 算法的基本概念
+衡量一个算法的优劣可以用时间复杂度与空间复杂度，即所谓的算的快，占地少。
+## 求方程的根
+### 暴力搜索
+**前提**：函数是连续的，或者在求解范围内是连续的。误差是指函数值与0值的差异绝对值。  
+
+**算法思路**：画图，在函数f(x)与横轴交点处的左边选个值做为初始根$x_0$，然后尝试一个较小的步长值delta,从左至右逐步丈量，直到$f(x_0+n*delta)$的值落在误差范围内，或者$f(x_0+n*delta)*f(x_0)<0$（即异号,搜根失败）。
+
+例：[暴力搜索法求方程近似根](./2026春练习/算法思维-方程求根/暴力搜索法求方程近似根/暴力搜索法求方程近似根.md)
+### 二分法
+即为一分为二的方法，对于区间[a，b]上连续不断且f(a)*f(b)<0的函数y=f(x)，通过不断地把函数f(x)的零点所在的区间一分为二，使区间的两个端点逐步逼近零点，进而得到零点近似值的方法为二分法，可以求方程的根，也可以用于大数据查找。
+
+例：[二分法求方程近似根](./2026春练习/算法思维-方程求根/二分法求方程近似根/二分法求方程近似根.md)
+### 牛顿迭代法（切线法）
+**公式**：$x_{k+1}=x_k-f(x_k)/f'(x_k)$
+
+**目标**：不断求曲线f(x)的切线与x轴的交点,直到无穷逼近f(x)与x轴的交点
+
+<img src="./images/牛顿切线法.png" width="50%" style="max-width: 100%; height: auto;"  alt="牛顿切线法"/>
+
+例：[牛顿迭代法求方程近似根](./2026春练习/算法思维-方程求根/牛顿迭代法求方程近似根/牛顿迭代法求方程近似根.md)
+### 牛顿割线法
+**公式**：$x_{k+1}=x_k-\frac{f(x_k)}{f(x_k)-f(x_{k-1})}(x_k-x_{k-1})$
+
+<img src="./images/牛顿割线法.png" width="50%" style="max-width: 100%; height: auto;"  alt="牛顿割线法"/>
+
+例：[牛顿割线法法求方程近似根](./2026春练习/算法思维-方程求根/牛顿割线法法求方程近似根/牛顿割线法法求方程近似根.md)
+## 求函数的最值
+### 相关概念
+- 偏导数：描述多元函数在不同自变量方向的变化率，是标量
+- 梯度 ：梯度是一个向量（矢量），表示某一函数在该点处的方向导数沿着该方向取得最大值，即函数在该点处沿着该方向（此梯度的方向）变化最快，变化率最大（为该梯度的模）
+### 梯度下降法
+为了找到函数的最小值处，只要让函数值朝着梯度方向的反方向(下降)走一小步，再求出此处的梯度方向，继续往梯度方向的反方向走一小步，如此往复，就能找到函数的最小值。
+### 一元函数
+**公式**：$x_{k+1}=x_k−\eta∗f'(x_k)$  
+这里η称为学习率，一般设置得较小
+
+例：[用梯度下降法求一元函数的最值](./2026春练习/算法思维-函数求最值/用梯度下降法求一元函数的最值/用梯度下降法求一元函数的最值.md)
+### 二元函数
+**公式**：$(x_{k+1},y_{k+1})=(x_k,y_k)-\eta *(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y})$
+
+例：[用梯度下降法求二元函数的最值](./2026春练习/算法思维-函数求最值/用梯度下降法求二元函数的最值/用梯度下降法求二元函数的最值.md)
+## 数据拟合
+测量所得的数据一般都有一定的误差，如何从大量测量所得的数据点中找出数据服从的一般规律性，即找出一个函数来刻画数据点的分布，可以称为***数据的函数拟合***。拟合好的函数，可以用来对新的测量数据进行预测。
+### 线性拟合
+设隐含的线性函数$y=h(x)=w_0+w_1x$。给定初始的$(w_0,w_1)$值，对于任何一个点$(x_{(i)},y_{(i)})$，称为样本, 计算其函数值$h(x_{(i)})$与$y_{(i)}$的差异，一般使用均方误差损失函数$L(w_0,w_1)=\frac{1}{2m}\sum_{i=1}^m(h(x^{(i)})-y^{(i)})^2=\frac{1}{2m}\sum_{i=1}^m(w_0+w_1x^{(i)}-y^{(i)})^2$表示，m是样本点个数。只要找到最合适的$(w_0,w_1)$值使得对于所有的数据点(样本点)误差函数值最小化，就求得了线性拟合函数。因此线性拟合问题转换为误差函数求最小值问题，此时的未知数是$(w_0,w_1)$, 使用***梯度下降法***对$(w_0,w_1)$进行迭代，找出合适的$(w_0,w_1)$值使得$L(w_0,w_1)$最小。
+例：[线性拟合](./2026春练习/算法思维-数据拟合/数据的直线拟合/数据的直线拟合.md)
+### 多项式曲线拟合
+```Python
+import numpy as np
+import matplotlib.pyplot as plt
+# 1. 生成示例数据
+np.random.seed(42)
+x = np.linspace(0, 2*np.pi, 100)
+y = np.sin(x)+0.2 * np.random.randn(100)
+# 2. 多项式特征
+degree = 5 # 多项式阶数
+X_poly = np.zeros((len(x), degree + 1)) #全0矩阵
+for i in range(degree + 1):
+    X_poly[:, i] = x ** i # x^0, x^1, x^2, ..., x^degree
+# 3. 特征标准化（除截距项）
+X_normalized=X_poly.copy()
+mean = np.mean(X_poly[:, 1:], axis=0) # 除第一列外，求每列的均值
+std = np.std(X_poly[:, 1:], axis=0) # 除第一列外，求每列的标准差
+X_normalized[:, 1:] = (X_poly[:, 1:] - mean) / std
+# 4. 初始化
+lr=0.1 #学习率
+epochs=2000 #对数据点集的迭代轮数
+m=len(x) #数据点(样本点)个数
+w=np.random.randn(degree+1) #初始w值的设置，服从标准正态分布的随机数
+# 5.批量梯度下降法更新w值
+for i in range(epochs):
+    errors=X_normalized@w-y
+    L=np.sum(errors**2)/m #mse,平均平方误差，注意没有添加系数1/2
+    if i%200==0:
+        print(f"epoch={i}/{epochs}, w={np.round(w,2)},Loss={L:.6f}")
+    grad=(1/m)*X_normalized.T@errors
+    w=w-lr*grad
+print(f"w={np.round(w,2)},Loss={L:.6f}")
+# 6. 可视化
+predict=X_normalized@w
+plt.plot(x,y,'.')#数据点，真实值
+plt.plot(x,predict,"r-",label='Gradient Descent') #拟合曲线
+plt.plot(x,np.sin(x),'b-',label='True') #真实曲线
+plt.legend() #图例
+plt.show()
+```
+<img src="./images/多项式曲线拟合.png" width="50%" style="max-width: 100%; height: auto;"  alt="多项式曲线拟合"/>
+
+例：[多项式曲线拟合](./2026春练习/算法思维-数据拟合/数据的一元二次曲线函数拟合/数据的一元二次曲线函数拟合.md)
+### BP神经网络
+#### 多层感知机
+***多层感知机***是一种前馈人工神经网络，由至少一个***输入层***、一个或多个***隐藏层***以及一个***输出层***组成。每个***隐藏层***和***输出层***中的神经元（也称为“单元”）与前一层的所有神经元全连接，并通过非线性激活函数引入非线性变换。***多层感知机***是深度神经网络的基本形式，也是最经典的神经网络模型之一。
+
+- 输入层：接收原始特征向量
+- 隐藏层：包含若干神经元（个数可自定义）
+- 输出层：产生最终预测结果。神经元个数由任务决定。输出层的激活函数视任务而定（回归常用线性，二分类常用Sigmoid，多分类常用 Softmax）。
+#### BP神经网络
+***BP神经网络***（Backpropagation Neural Network）是一种基于误差反向传播算法训练的多层前馈神经网络。它通过链式法则计算损失函数对网络中所有权重和偏置的梯度，然后利用梯度下降法更新参数，使得网络输出不断逼近目标值。BP算法解决了***多层感知机***（MLP）的训练难题，是深度学习的基石之一。在实际语境中，***多层感知机***和***BP神经网络***两者往往混用。理解***BP神经网络***是学习更复杂神经网络（CNN、RNN、Transformer等）的基础，而Transformer结构是deepseek, ChatGPT 等大语言模型的基石。
 ### [回到目录](#content)
 
 ---
