@@ -8,6 +8,7 @@
 ## [列表的基本操作](#basic-operation-of-list)
 ## [序列数据的基本操作](#basic-operation-of-sequential-data)
 ## [字典的基本操作](#basic-operation-of-dictionary)
+## [文件操作](#file-operations)
 ## [ASCII表](#ascii)
 ## [人工智能-分类与聚类算法](#artificial-intelligence-classification-and-clustering-algorithms)
 ## [智能决策-搜索与优化](#intelligent-decision-making-search-and-optimization)
@@ -116,7 +117,7 @@ print("数组大小:", arr2.size) # 元素总数 6
 print("数据类型:", arr2.dtype) # 元素数据类型 float32
 ```
 #### 使用NumPy库函数创建特殊数组
-- `np.zeros(shape)`：创建全零数组，例如：`np.zeros((2, 3))`，结果：[[0. 0. 0.], [0. 0. 0.]]
+- `np.zeros(shape)`：创建全零数组，例如：`np.zeros((2, 3))`，结果：\[[0. 0. 0.], [0. 0. 0.]]
 
 - `np.ones(shape)`： 创建全一数组，例如：`np.ones((3,))`，结果： [1. 1. 1.]
 
@@ -127,15 +128,15 @@ print("数据类型:", arr2.dtype) # 元素数据类型 float32
 - `np.logspace(low, high=None, size=None)`: 创建指定元素数量的等比数组，例如:`np.logspace(0,2,5)`，
 结果: 在100到102之间生成5个等比数列
 
-- `np.eye(N)`：创建单位矩阵，例如：`np.eye(3)`，结果：[[1. 0. 0.], [0. 1. 0.], [0. 0. 1.]]
+- `np.eye(N)`：创建单位矩阵，例如：`np.eye(3)`，结果：\[[1. 0. 0.], [0. 1. 0.], [0. 0. 1.]]
 
-- `np.identity(n)`：创建单位方阵，例如：`np.identity(2)`，结果：[[1. 0.], [0. 1.]]
+- `np.identity(n)`：创建单位方阵，例如：`np.identity(2)`，结果：\[[1. 0.], [0. 1.]]
 
-- `np.diag(v)`： 创建对角矩阵，例如：`np.diag([1, 2, 3])`，结果：[[1 0 0], [0 2 0], [0 0 3]]
+- `np.diag(v)`： 创建对角矩阵，例如：`np.diag([1, 2, 3])`，结果：\[[1 0 0], [0 2 0], [0 0 3]]
 
-- `np.empty()`：生成一个空数组，例如：`np.empty((3, 2))`，结果：[[0. 0.],[0. 0.],[0. 0.]]
+- `np.empty()`：生成一个空数组，例如：`np.empty((3, 2))`，结果：\[[0. 0.],[0. 0.],[0. 0.]]
 
-- `np.full()`：用一个数初始化数组，例如：`np.full((3, 2), 10)`结果：[[10 10],[10 10],[10 10]]
+- `np.full()`：用一个数初始化数组，例如：`np.full((3, 2), 10)`结果：\[[10 10],[10 10],[10 10]]
 #### 使用NumPy库函数创建随机数组
 - `np.random.seed(seed=None)`：设置随机数生成器的种子，使下面的随机数生成具有可重复性。seed建议使用0到$2^{32}−1$之间的整数。
 
@@ -255,8 +256,7 @@ print(shuffled_matrix)
     print("arr_2d[-1, -2]:", arr_2d[-1, -2]) # 最后一行倒数第二列
     # 整行/整列索引
     print("第二行:", arr_2d[1])# 第二行（整行）
-    print("第三列:", arr_2d[:, 2])
-    # 第三列（整列）
+    print("第三列:", arr_2d[:, 2])# 第三列（整列）
     ```
 - 切片索引：使用切片语法（start:stop:step）来访问数组的子集。注意：数组切片是原始数组的**视图**，视图上的任何修改都会直接反应到源数组。如果要获得新数组： arr_bak = arr[:3].copy()
   - 示例：
@@ -333,7 +333,7 @@ print(shuffled_matrix)
     ```Python
     # 一维测试数组示例
     arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    arr[arr > 5] = 0 # 将所有大于5的元素设为0print(arr)
+    arr[arr > 5] = 0 # 将所有大于5的元素设为0
     arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) # 重置数组
     arr[(arr > 3) & (arr < 8)] = -1 # 使用多个条件
     print("3到8之间的元素设为-1:", arr)
@@ -445,7 +445,8 @@ print("有符号转无符号:", arr_unsigned) # 注意-1会变成255
 # 一维数组示例:
 a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
-result1 = np.concatenate((a, b)) # 沿默认轴(0)连接print(result1)
+result1 = np.concatenate((a, b)) # 沿默认轴(0)连接
+print(result1)
 result2 = np.concatenate((a, b), axis=1) # 报错，axis 1 is out of bounds for array of dimension 1
 # 二维数组示例：
 x = np.array([[1, 2], [3, 4]]) # 2行2列
@@ -484,7 +485,7 @@ print(arr_auto2.reshape(-1)) # 一维
     ```
 ### 升维和降维
 - 使用``np.newaxis``或`None`升维
-  - 示例
+  - 示例：
     ```Python
     arr_1d = np.array([1, 2, 3, 4, 5])
     arr_col = arr_1d[:, np.newaxis] # 增加行维度（变为列向量），可用None替代np.newaxis
@@ -740,7 +741,7 @@ y1 = x*3 # 定义y1数据范围
 y2 = x*x # 定义y2数据范围
 #创建窗口、子图
 fig = plt.figure() # 先创建一个窗口
-ax1 = fig.add_subplot(2,1,1) #通过fig添加子图，参数：(行数,列数,第几个 )
+ax1 = fig.add_subplot(2,1,1) #通过fig添加子图，参数：(行数,列数,第几个)
 ax2 = fig.add_subplot(2,1,2)
 ax1.plot(x,y1) # plot()画出直线
 ax2.plot(x,y2,color = 'red',marker = '*', linestyle = '--') # 设置曲线颜色,标记，样式
@@ -860,7 +861,7 @@ fig1=plt.figure('fig1', figsize=(7,5))
 默认使用一个画布 如果要拥有多个画布，可用figure函数创建!
 ''' 
 fig1 = plt.figure('fig1',figsize =(7,5))
-#plt.plot(x, y) # plot函数作图折线图
+# plot函数作图折线图
 plt.plot(x, y, color="r", linestyle="--", marker="*", linewidth=1.0,label ='虚线')
 plt.plot(x, x, color="b", linestyle="-", marker="o", linewidth=2.0,label = '实线')
 plt.legend(loc='upper left') #图例显示位置
@@ -1324,6 +1325,108 @@ cars = {'BMW': 8.5, 'BENS': 8.3, 'AUDI': 7.9}
 for key,value in cars.items():
     print(key,value)
 ```
+### [回到目录](#content)
+
+---
+# 文件操作<a id="file-operations"></a>
+## 文件基本概念
+### 文件编码
+编码表|适用性|特点
+---|---|---|
+ASCII码 | 英文大小写，字符，不包含中文 | 占用空间小
+GB2312和GBK码 | 支持中文 | GBK 码是 GB2312 的升级
+Unicode码 | 支持国际语言 | 占用空间大，适用性强
+UTF-8码 | 支持国际语言 | 是 Unicode 码的升级，两者可互相转化，占用空间小 ，ASCII 码被 UTF-8 码包 含
+```Python
+#文本与UTF-8编码之间的转换示例
+s1='你好吗'
+print(s1.encode('utf-8')) #输出为b'\xe6\x88\x91\xe7\x88\xb1\xe4\xbd\xa0'
+s2=s1.encode('utf-8')
+print(s2.decode()) #输出为你好吗
+```
+### 文件类型
+按照文件的编码方式，可以将文件分为文本文件（Text File）和二进制文件（Binary File）。  
+按文件的组织方式：
+- 文本文件是基于字符编码的文件，保存的是文本数据，这些文本采用一定的编码。在用记事本等软件保存文本文件时，通常需要指定编码方式（或用默认编码方式）。汉字文件有时打开是乱码，往往就是因为编码方式选择不当。文本文件由字符组成，可以看成是一个很长的字符串。
+- 二进制文件是基于值编码的文件，存储的是二进制数据，也就是说，数据按照其实际占用的字节数来存储的。二进制文件不是以字符为单位的，不能看成字符串，而是被当作特定格式的字节流来处理的。
+
+其他文件：excel文件，csv 文件，json文件  
+可参阅：[Python文件类型读写库大盘点](https://www.jb51.net/python/284815fu4.htm)
+## 目录操作
+导入库：`import os`
+
+- `getcwd()`：**返回当前的工作路径**
+
+- `chdir(path)`：**改变当前工作路径到指定的路径**
+
+- `listdir(path)`：**返回指定路径下的文件和文件夹列表**
+
+- `path.exists(path)`：**路径存在则返回True，路径损坏返回False**
+## 文本、二进制文件操作 
+### 打开、关闭文本文件（.txt）
+`f=open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closed=True, opener=None)`加上`f.close()`  
+或`with open(file, mode, encoding=None) as f:语句块`
+
+参数：
+- file：表示要打开的文件路径（相对或者绝对路径）
+- mode：表示文件打开模式
+- buffering：用于设置缓冲
+- encoding：用于设置编码格式，一般使用utf8
+- errors：指明编码和解码错误时怎么样处理，适用于文本模式
+- newline：文本模式之下，控制一行的结束字符
+- closed：传入的file参数类型
+- opener：自定义打开文件方式
+
+<details><summary>mode</summary>
+    <ul>
+        <li>r：以读方式打开文件，可读取文件信息</li>
+        <li>w：以写方式打开文件，可向文件写入信息。如文件存在，则清空该文件，再写入新内容</li>
+        <li>a：以追加模式打开文件（即一打开文件，文件指针自动移到文件末尾），如果文件不存在则创建</li>
+        <li>r+：以读写方式打开文件，可对文件进行读和写操作</li>
+        <li>w+：消除文件内容，然后以读写方式打开文件</li>
+        <li>a+：以读写方式打开文件，并把文件指针移到文件尾</li>
+        <li>b：以二进制模式打开文件，而不是以文本模式。该模式只对Windows或Dos有效，类Unix的文件是用二进制模式进行操作的</li>
+    </ul>
+</details>
+
+### 文件读取
+- `f.seek(0)`：**文件指针复位，重新回到初始状态**
+
+- `f.read([size])`：**从文件读取指定的字节数。如果没有给定 size 的值，或者 size 的值为负数，则读取全部文件内容**
+
+- `f.readline([size])`：**从文件中读取整行，包括“\n”字符。如果给定 size 的值（非负），则返回给定的字符数或字节数**
+
+- `f.readlines()`：**从文件中读取所有行，以每行一个元素形成一个列表返回。该列表可以用for…in…结构进行处理**
+### 文件写入
+- `f.write([str])`：**用于向文件中写入一个字符串或字节流**
+
+- `f.writelines([str])`：**用于向文件中写入一个序列的字符串，如元素为字符串的列表。换行需要自己添加换行符“\n”。**
+## Json数据格式
+导入库`import json`   
+字典或列表中嵌套字典，本质上是一个带有特定格式的字符串
+### Python数据和json数据的相互转化
+- python数据转成json字符串：`json_data = json.dumps(python_data)`
+- json字符串转成python对象：`python_data = json.loads(json_data)`
+```Python
+Dict = {'name':'总经理','address': '湖南大学','scores': [75,85,90,60]}
+Json_Dict = json.dumps(Dict) # 转换成json数据
+print(Json_Dict) # 输出{"name": "\u603b\u7ecf\u7406", "address": "\u6e56\u5357\u5927\u5b66", "scores": [75, 85, 90, 60]}
+print(type(Json_Dict)) # 输出<class 'str'>
+Json_Dict2=json.dumps(Dict,ensure_ascii=False) 
+print(Json_Dict2) # 输出{"name": "总经理", "address": "湖南大学", "scores": [75, 85, 90, 60]}
+Dictdata = json.loads(Json_Dict) # 还原成字典数据
+print(Dictdata) # 输出{"name": "总经理", "address": "湖南大学", "scores": [75, 85, 90, 60]}
+```
+### Python操作Json文件(.json)
+1. 用write()函数来实现json文件的写，如我们将上面的字典数据存入data.json文件中
+    ```Python
+    with open('data.json','w') as data:
+        data.write(json.dumps(Dict))
+    ```
+2. 也可用Json模块提供的dump()函数来实现
+    `json.dump(Json_Dict, open('data.json','w'))`
+3. 从JSON文件中读取数据返回一个python对象可用load()函数来实现
+    `data = json.load(open('data.json'))`
 ### [回到目录](#content)
 
 ---
