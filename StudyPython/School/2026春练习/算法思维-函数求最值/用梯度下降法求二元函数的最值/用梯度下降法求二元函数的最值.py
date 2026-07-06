@@ -30,5 +30,4 @@ for t in range(max_iters):
     y = y - lr * grad_y  # 请更新y值
 else:
     print('False')
-
 ###################end#######################

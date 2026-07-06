@@ -21,6 +21,3 @@ y_hat = X_poly.dot(w)
 mse = np.mean((y_hat - Y) ** 2)
 print(f"w0={w[0]:.6f},w1={w[1]:.6f},w2={w[2]:.6f},mse={mse:.6f}")
 ######################end###################
-
-
-
