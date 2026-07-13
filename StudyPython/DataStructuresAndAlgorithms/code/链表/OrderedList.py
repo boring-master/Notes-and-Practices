@@ -32,3 +32,17 @@ class OrderedList:
         else:
             temp.setNext(current)
             previous.setNext(temp)
+    def isEmpty(self):
+        return self.head == None
+    def length(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.getNext()
+        return count
+    def traverse(self):
+        current = self.head
+        while current != None:
+            print(current.getData())
+            current = current.getNext()
