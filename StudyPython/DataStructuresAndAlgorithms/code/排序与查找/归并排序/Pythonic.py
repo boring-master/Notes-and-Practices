@@ -1,0 +1,14 @@
+def merge_sort(lst):
+    if len(lst) <= 1:
+        return lst
+    mid = len(lst) // 2
+    left = merge_sort(lst[:mid])
+    right = merge_sort(lst[mid:])
+    merged = []
+    while left and right:
+        if left[0] <= right[0]:
+            merged.append(left.pop(0))
+        else:
+            merged.append(right.pop(0))
+    merged.extend(right if right else left)
+    return merged
