@@ -6,12 +6,12 @@ class Printer:
         self.currentTask = 0
         self.timeRemaining = 0
     def tick(self):
-        if self.currentTask != None:
+        if self.currentTask is not None:
             self.timeRemaining -= 1
             if self.timeRemaining <= 0:
                 self.currentTask = None
     def busy(self):
-        if self.currentTask != None:
+        if self.currentTask is not None:
             return True
         else:
             return False
