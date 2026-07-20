@@ -6,7 +6,7 @@ class OrderedList:
         current = self.head
         found = False
         stop = False
-        while current != None and not found and not stop:
+        while current is not None and not found and not stop:
             if current.getData() == item:
                 found = True
             else:
@@ -19,30 +19,30 @@ class OrderedList:
         current = self.head
         previous = None
         stop = False
-        while current != None and not stop:
+        while current is not None and not stop:
             if current.getData() > item:
                 stop = True
             else:
                 previous = current
                 current = current.getNext()
         temp = Node(item)
-        if previous == None:
+        if previous is None:
             temp.setNext(self.head)
             self.head = temp
         else:
             temp.setNext(current)
             previous.setNext(temp)
     def isEmpty(self):
-        return self.head == None
+        return self.head is None
     def length(self):
         current = self.head
         count = 0
-        while current != None:
+        while current is not None:
             count = count + 1
             current = current.getNext()
         return count
     def traverse(self):
         current = self.head
-        while current != None:
+        while current is not None:
             print(current.getData())
             current = current.getNext()
