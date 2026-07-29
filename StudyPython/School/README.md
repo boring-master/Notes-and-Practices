@@ -3,3 +3,4 @@
 ## Links
 [数学python笔记](数学python笔记.md)  
 [input输入示例](input_example.ipynb)
+[慕课相关笔记](慕课相关笔记.md)

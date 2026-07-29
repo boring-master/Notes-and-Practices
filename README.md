@@ -7,4 +7,7 @@
 
 ![Stone Badge](https://stone.professorlee.work/api/stone/boring-master/Notes-and-Practices)
 > 上面的stone badge来自https://github.com/professor-lee/StoneBadge
+> 
 > （但最近好像用不了了？）
+
+> 编辑于vscode

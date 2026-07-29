@@ -11,7 +11,7 @@ def test2():
 def test3():
     l = [i for i in range(1000)]
 
-def test4():
+def test4():# 最快
     l = list(range(1000))
 
 from timeit import Timer
