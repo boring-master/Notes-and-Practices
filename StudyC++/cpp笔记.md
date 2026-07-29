@@ -1,3 +1,6 @@
+学习链接：[C++基础编程](https://namic00.github.io/namic/notes/211228/)
+
+视频补充链接：[黑马程序员C++零基础入门到精通全套视频教程](https://www.bilibili.com/video/BV1ZH4y137ws/?spm_id_from=333.1387.search.video_card.click&vd_source=80fea5cdbb3bb986ef6938ac26160d40)
 # 目录
 ## [1.cpp初识](#1-cpp初识)
 <details><summary></summary>

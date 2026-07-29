@@ -3,5 +3,6 @@
 # 相关链接
 - 视频：[【W17H00】数据结构与算法Python版-北京大学-2022春季](https://www.bilibili.com/video/BV1kY411K7Wg?spm_id_from=333.788.videopod.sections&vd_source=80fea5cdbb3bb986ef6938ac26160d40)
 - 对应的自学指南：[数据结构与算法Python版 自学课程指南](https://www.bilibili.com/opus/679262894843494400)
+- 电子书：[Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/ns/books/published/pythonds/index.html)
 
 [数据结构与算法笔记.md](./数据结构与算法笔记.md)
