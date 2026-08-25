@@ -10,7 +10,7 @@
 ## [字典的基本操作](#basic-operation-of-dictionary)
 ## [文件操作](#file-operations)
 ## [ASCII表](#ascii)
-## [慕课相关](慕课笔记.md)
+## [慕课相关](慕课相关笔记.md)
 
 ---
 #  math库<a id="math-library"></a>
